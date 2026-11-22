@@ -1,0 +1,21 @@
+name: Free Trading 212 Bot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 14 * * 1-5'
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Run Trading Check
+        env:
+          T212_API_KEY: ${{ secrets.T212_API_KEY }}
+          T212_API_SECRET: ${{ secrets.T212_API_SECRET }}
+        run: python bot.py
