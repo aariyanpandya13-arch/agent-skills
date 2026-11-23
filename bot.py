@@ -2,7 +2,7 @@ import os
 import requests
 from requests.auth import HTTPBasicAuth
 
-BASE_URL = "https://demo.trading212.com/api/v0"
+BASE_URL = "https://live.trading212.com/api/v0"
 auth = HTTPBasicAuth(os.environ["T212_API_KEY"], os.environ["T212_API_SECRET"])
 
 TICKER = "AAPL_US_EQ"
